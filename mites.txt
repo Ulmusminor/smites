@@ -1,0 +1,25 @@
+\Results for the experiment starting in {date} and finishing in {date}. The tray is number [1, 2, 3, 4, depending on how many mites are analyzed in a week]
+\Additional comments: [Write whatever you want that may be important for this experiment in particular. The first four lines are going to be ignored anyway]
+
+\Position
+1h Right Right Right Right Right Right Right Right Right Right Right Right Right Right Right Right Right Right Right Right
+24h Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left
+48h Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left
+72h Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left
+90h Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left Left
+
+\Eggs on the left
+1h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+24h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+48h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+72h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+90h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+\Eggs on the right
+1h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+24h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+48h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+72h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+90h 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+
