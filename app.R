@@ -1,5 +1,6 @@
 library(shiny)
 library(bslib)
+library(tidyverse)
 
 # Define UI ----
 ui <- page_navbar(
@@ -57,8 +58,13 @@ ui <- page_navbar(
         instructions"
       ),
       fileInput("file", label = NULL),
-      textOutput("summary"),
+      
+      selectInput(inputId = "y", label = "Table",
+                  choices = c("Position", "Eggs Left", "Eggs Right")),
+      
+      tableOutput("mites"),
     ),
+    
     card(
       card_header("Complex analysis"),
       textOutput("tstudent"),
@@ -73,6 +79,41 @@ server <- function(input, output) {
     paste("You have selected", input$number, "mites [This is meant to show the 
           layout for the mites. Here I could make an option to design the usual
           layout or to make a randomized one instead]")
+  })
+  
+  data <- reactive({
+    list(
+      pos = input$file$datapath |> 
+      read_table( 
+               col_names = c("Hours", paste("Mite", 1:20)), 
+               col_types = cols(.default = "c"), 
+               skip = 4, n_max = 5) |> 
+      pivot_longer(-Hours, names_to = "Number") |>    
+      pivot_wider(names_from = Hours, values_from = value),
+    
+    l = input$file$datapath |> 
+      read_table( 
+        col_names = c("Hours", paste("Mite", 1:20)), 
+        col_types = cols(.default = "c"), 
+        skip = 11, n_max = 5) |> 
+      pivot_longer(-Hours, names_to = "Number") |>    
+      pivot_wider(names_from = Hours, values_from = value),
+    
+    r = input$file$datapath |> 
+      read_table( 
+        col_names = c("Hours", paste("Mite", 1:20)), 
+        col_types = cols(.default = "c"), 
+        skip = 18, n_max = 5) |> 
+      pivot_longer(-Hours, names_to = "Number") |>    
+      pivot_wider(names_from = Hours, values_from = value)
+    )
+  })
+  
+  output$mites <- renderTable({
+    if (is.null(input$file)) return(tibble(Message = "No file uploaded yet"))
+    else if (input$y == "Position") return(data()$pos)
+    else if (input$y == "Eggs Left") return(data()$l)
+    else return(data()$r)
   })
 }
 
